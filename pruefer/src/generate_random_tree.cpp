@@ -25,7 +25,7 @@ int main()
 
 	vpll edge = Pruefer::decode(code);
 
-	for(ll i = 0; i < n; i++)
+	for(ll i = 0; i < n - 1; i++)
 		if(std::uniform_int_distribution<ll>(0, 1)(mersenne_twister))
 			std::swap(edge[i].first, edge[i].second);
 	std::shuffle(edge.begin(), edge.end(), mersenne_twister);

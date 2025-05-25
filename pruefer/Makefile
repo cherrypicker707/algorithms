@@ -16,3 +16,6 @@ lib/libpruefer.a: bin/pruefer/pruefer.o bin/pruefer/tree.o
 
 bin/pruefer/%.o: src/pruefer/%.cpp
 	$(CC) $(CFLAGS) -c -o $@ $^
+
+clean_valgrind:
+	rm vgcore.*
