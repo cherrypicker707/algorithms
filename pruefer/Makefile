@@ -1,23 +1,18 @@
 CC=clang++
+CFLAGS=-fdiagnostics-color=always -g -Iinclude -Llib
+
+SRC_FILES=$(wildcard src/*.cpp)
+BIN_FILES=$(patsubst src/%.cpp, bin/%, $(SRC_FILES))
 
 .PHONY: all
 
-all: bin/encode bin/decode bin/generate_random_tree
+all: $(BIN_FILES)
 
-bin/encode: src/encode.cpp lib/libpruefer.a
-	$(CC) -fdiagnostics-color=always -g -Iinclude -Llib -o $@ $< -lpruefer
+bin/%: src/%.cpp lib/libpruefer.a
+	$(CC) $(CFLAGS) -o $@ $< -lpruefer
 
-bin/decode: src/decode.cpp lib/libpruefer.a
-	$(CC) -fdiagnostics-color=always -g -Iinclude -Llib -o $@ $< -lpruefer
-
-bin/generate_random_tree: src/generate_random_tree.cpp lib/libpruefer.a
-	$(CC) -fdiagnostics-color=always -g -Iinclude -Llib -o $@ $< -lpruefer
-
-lib/libpruefer.a: bin/pruefer.o bin/conversion.o
+lib/libpruefer.a: bin/pruefer/pruefer.o bin/pruefer/tree.o
 	ar rcs $@ $^
 
-bin/pruefer.o: src/pruefer.cpp
-	$(CC) -fdiagnostics-color=always -g -Iinclude -c -o $@ $^
-
-bin/conversion.o: src/conversion.cpp
-	$(CC) -fdiagnostics-color=always -g -Iinclude -c -o $@ $^
+bin/pruefer/%.o: src/pruefer/%.cpp
+	$(CC) $(CFLAGS) -c -o $@ $^
