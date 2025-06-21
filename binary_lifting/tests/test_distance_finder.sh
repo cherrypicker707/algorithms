@@ -1,7 +1,7 @@
 TIMEFMT="%E"
 
-t=100
-n=5000
+t=1000
+n=2000
 
 make
 
@@ -17,7 +17,7 @@ do
 
 	printf "Binary lifting solution: \033[96m"
 	{ time bin/find_distance < tests/res/input.txt > tests/res/output_binary_lifting.txt; } 2>&1 | tr -d '\n' &&
-	printf "\033[0m\n"
+	printf "\033[0m\n" &&
 
 	cmp --silent tests/res/output_brutal.txt tests/res/output_binary_lifting.txt &&
 	printf "\033[1;92mSuccess!\033[0m\n\n" ||
