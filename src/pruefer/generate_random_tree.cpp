@@ -23,7 +23,7 @@ int main()
 
 	std::cout << n << '\n';
 
-	vpll edge = Pruefer::decode(code);
+	vpll edge = Algorithm::Pruefer::decode(code);
 
 	for(ll i = 0; i < n - 1; i++)
 		if(std::uniform_int_distribution<ll>(0, 1)(mersenne_twister))

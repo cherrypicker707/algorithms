@@ -23,7 +23,7 @@ int main()
 		adjacent[v].push_back(u);
 	}
 
-	BinaryLifting::BinaryLifting binaryLifting(adjacent);
+	Algorithm::BinaryLifting binaryLifting(adjacent);
 
 	for(ll i = 0; i < n; i++)
 	{

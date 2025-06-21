@@ -5,7 +5,7 @@ typedef long long ll;
 typedef std::vector<ll> vll;
 typedef std::vector<vll> vvll;
 
-BinaryLifting::BinaryLifting::BinaryLifting(const vvll &adjacent)
+Algorithm::BinaryLifting::BinaryLifting(const vvll &adjacent)
 {
 	n = adjacent.size();
 	m = ceil(log2(n)) + 1;
@@ -15,13 +15,13 @@ BinaryLifting::BinaryLifting::BinaryLifting(const vvll &adjacent)
 	depthFirstSearch(0, -1, adjacent);
 }
 
-ll BinaryLifting::BinaryLifting::getDistance(ll u, ll v)
+ll Algorithm::BinaryLifting::getDistance(ll u, ll v)
 {
 	ll w = getLCA(u, v);
 	return depth[u] + depth[v] - 2 * depth[w];
 }
 
-ll BinaryLifting::BinaryLifting::getLCA(ll u, ll v)
+ll Algorithm::BinaryLifting::getLCA(ll u, ll v)
 {
 	if(depth[u] < depth[v])
 		std::swap(u, v);
@@ -42,7 +42,7 @@ ll BinaryLifting::BinaryLifting::getLCA(ll u, ll v)
 	return ancestor[u][0];
 }
 
-ll BinaryLifting::BinaryLifting::getAncestor(ll u, ll k)
+ll Algorithm::BinaryLifting::getAncestor(ll u, ll k)
 {
 	if(k >= n)
 		return -1;
@@ -59,7 +59,7 @@ ll BinaryLifting::BinaryLifting::getAncestor(ll u, ll k)
 	return u;
 }
 
-void BinaryLifting::BinaryLifting::depthFirstSearch(ll u, ll p, const vvll &adjacent)
+void Algorithm::BinaryLifting::depthFirstSearch(ll u, ll p, const vvll &adjacent)
 {
 	depth[u] = 0;
 	if(p != -1)

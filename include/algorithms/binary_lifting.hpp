@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-namespace BinaryLifting
+namespace Algorithm
 {
 	class BinaryLifting
 	{

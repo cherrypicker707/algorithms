@@ -7,12 +7,12 @@ typedef std::vector<vll> vvll;
 typedef std::pair<ll, ll> pll;
 typedef std::vector<pll> vpll;
 
-vll Pruefer::encode(const vpll &edge)
+vll Algorithm::Pruefer::encode(const vpll &edge)
 {
 	ll n = edge.size() + 1;
 	vll code(n - 2);
-	vvll adjacent = getAdjacentFromEdge(edge);
-	vll parent = getParentFromAdjacent(adjacent, n - 1);
+	vvll adjacent = Tree::getAdjacentFromEdge(edge);
+	vll parent = Tree::getParentFromAdjacent(adjacent, n - 1);
 
 	std::vector<long long> degree(n);
 	for(ll i = 0; i < n; i++)
@@ -35,7 +35,7 @@ vll Pruefer::encode(const vpll &edge)
 	return code;
 }
 
-vpll Pruefer::decode(const vll &code)
+vpll Algorithm::Pruefer::decode(const vll &code)
 {
 	ll n = code.size() + 2;
 

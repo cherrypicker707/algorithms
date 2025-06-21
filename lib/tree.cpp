@@ -8,7 +8,7 @@ typedef std::vector<pll> vpll;
 
 static void constructParentFromAdjacent(const vvll &adjacent, ll u, ll p, vll &parent);
 
-vpll Pruefer::getEdgeFromAdjacent(const vvll &adjacent)
+vpll Algorithm::Tree::getEdgeFromAdjacent(const vvll &adjacent)
 {
 	ll n = adjacent.size();
 
@@ -23,7 +23,7 @@ vpll Pruefer::getEdgeFromAdjacent(const vvll &adjacent)
 	return edge;
 }
 
-vvll Pruefer::getAdjacentFromEdge(const vpll &edge)
+vvll Algorithm::Tree::getAdjacentFromEdge(const vpll &edge)
 {
 	ll n = edge.size() + 1;
 
@@ -53,7 +53,7 @@ vvll Pruefer::getAdjacentFromEdge(const vpll &edge)
 	return adjacent;
 }
 
-vll Pruefer::getParentFromAdjacent(const vvll &adjacent, ll root)
+vll Algorithm::Tree::getParentFromAdjacent(const vvll &adjacent, ll root)
 {
 	ll n = adjacent.size();
 	vll parent(n);

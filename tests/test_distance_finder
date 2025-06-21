@@ -7,6 +7,8 @@ n=2000
 
 make
 
+mkdir res
+
 for i in {1..$t}
 do
 	printf "\033[1mTest case \033[1;96m$i\033[0m/\033[1;96m$t\033[0m\n" &&

@@ -21,7 +21,7 @@ int main()
 
 	std::cout << n << '\n';
 
-	vpll edge = Pruefer::decode(code);
+	vpll edge = Algorithm::Pruefer::decode(code);
 	for(ll i = 0; i < n - 1; i++)
 		std::cout << (edge[i].first + 1) << ' ' << (edge[i].second + 1) << '\n';
 }

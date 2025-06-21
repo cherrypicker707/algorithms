@@ -23,7 +23,7 @@ int main()
 
 	std::cout << n << '\n';
 
-	vll code = Pruefer::encode(edge);
+	vll code = Algorithm::Pruefer::encode(edge);
 	for(ll i = 0; i < n - 2; i++)
 		std::cout << (code[i] + 1) << ' ';
 	std::cout << '\n';
