@@ -1,4 +1,4 @@
-#include <pruefer/tree.hpp>
+#include <algorithms/tree.hpp>
 
 typedef long long ll;
 typedef std::vector<ll> vll;

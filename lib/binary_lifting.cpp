@@ -1,4 +1,4 @@
-#include <binary_lifting/binary_lifting.hpp>
+#include <algorithms/binary_lifting.hpp>
 #include <cmath>
 
 typedef long long ll;

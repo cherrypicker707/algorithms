@@ -1,4 +1,4 @@
-#include <binary_lifting/binary_lifting.hpp>
+#include <algorithms/binary_lifting.hpp>
 #include <vector>
 #include <iostream>
 
@@ -6,16 +6,12 @@ typedef long long ll;
 typedef std::vector<ll> vll;
 typedef std::vector<vll> vvll;
 
-vvll adjacent;
-
-ll getDistance(ll u, ll p, ll destination);
-
 int main()
 {
 	ll n;
 	std::cin >> n;
 
-	adjacent = vvll(n);
+	vvll adjacent(n);
 	for(ll i = 0; i < n - 1; i++)
 	{
 		ll u, v;
@@ -27,6 +23,8 @@ int main()
 		adjacent[v].push_back(u);
 	}
 
+	BinaryLifting::BinaryLifting binaryLifting(adjacent);
+
 	for(ll i = 0; i < n; i++)
 	{
 		ll u, v;
@@ -34,28 +32,9 @@ int main()
 		u--;
 		v--;
 
-		ll distance = getDistance(u, -1, v);
+		ll distance = binaryLifting.getDistance(u, v);
 		std::cout << distance << '\n';
 	}
 
 	return 0;
-}
-
-ll getDistance(ll u, ll p, ll destination)
-{
-	if(u == destination)
-		return 0;
-
-	for(ll v : adjacent[u])
-	{
-		if(v == p)
-			continue;
-
-		ll distance = getDistance(v, u, destination);
-
-		if(distance != -1)
-			return distance + 1;
-	}
-
-	return -1;
 }

@@ -1,4 +1,4 @@
-#include <pruefer/pruefer.hpp>
+#include <algorithms/pruefer.hpp>
 #include <iostream>
 
 typedef long long ll;

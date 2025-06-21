@@ -1,5 +1,5 @@
-#include <pruefer/pruefer.hpp>
-#include <pruefer/tree.hpp>
+#include <algorithms/pruefer.hpp>
+#include <algorithms/tree.hpp>
 
 typedef long long ll;
 typedef std::vector<ll> vll;

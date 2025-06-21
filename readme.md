@@ -1,7 +1,8 @@
 # Algorithms
 C++ implementations of some algorithms.
 
-# Required commands
+# Required Commands
 - `make`
 - `clang++`
 - `ar`
+- `zsh`
