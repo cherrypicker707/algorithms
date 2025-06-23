@@ -11,8 +11,8 @@ vll Algorithm::Pruefer::encode(const vpll &edge)
 {
 	ll n = edge.size() + 1;
 	vll code(n - 2);
-	vvll adjacent = Tree::getAdjacentFromEdge(edge);
-	vll parent = Tree::getParentFromAdjacent(adjacent, n - 1);
+	vvll adjacent = Tree::getAdjacent(edge);
+	vll parent = Tree::getParent(adjacent, n - 1);
 
 	std::vector<long long> degree(n);
 	for(ll i = 0; i < n; i++)
