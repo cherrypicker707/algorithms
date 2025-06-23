@@ -6,7 +6,9 @@ typedef std::vector<vll> vvll;
 typedef std::pair<ll, ll> pll;
 typedef std::vector<pll> vpll;
 
-static void constructParentFromAdjacent(const vvll &adjacent, ll u, ll p, vll &parent);
+static void setParentWithDFS(vll &parent, const vvll &adjacent, ll u, ll p);
+
+static void setSubtreeSizeWithDFS(vll &subtreeSize, const vvll &adjacent, ll u, ll p);
 
 vpll Algorithm::Tree::getEdgeFromAdjacent(const vvll &adjacent)
 {
@@ -58,16 +60,38 @@ vll Algorithm::Tree::getParentFromAdjacent(const vvll &adjacent, ll root)
 	ll n = adjacent.size();
 	vll parent(n);
 
-	constructParentFromAdjacent(adjacent, root, -1, parent);
-
+	setParentWithDFS(parent, adjacent , root, -1);
 	return parent;
 }
 
-static void constructParentFromAdjacent(const vvll &adjacent, ll u, ll p, vll &parent)
+vll Algorithm::Tree::getSubtreeSize(const vvll &adjacent, ll root)
+{
+	ll n = adjacent.size();
+	vll subtreeSize(n);
+
+	setSubtreeSizeWithDFS(subtreeSize, adjacent, root, -1);
+	return subtreeSize;
+}
+
+static void setParentWithDFS(vll &parent, const vvll &adjacent, ll u, ll p)
 {
 	parent[u] = p;
 
 	for(ll v : adjacent[u])
 		if(v != p)
-			constructParentFromAdjacent(adjacent, v, u, parent);
+			setParentWithDFS(parent, adjacent, v, u);
+}
+
+static void setSubtreeSizeWithDFS(vll &subtreeSize, const vvll &adjacent, ll u, ll p)
+{
+	subtreeSize[u] = 1;
+
+	for(ll v : adjacent[u])
+	{
+		if(v == p)
+			continue;
+
+		setSubtreeSizeWithDFS(subtreeSize, adjacent, v, u);
+		subtreeSize[u] += subtreeSize[v];
+	}
 }
