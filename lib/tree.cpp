@@ -14,7 +14,7 @@ static void setSubtreeSizeWithDFS(vll &subtreeSize, const vvll &adjacent, ll u, 
 
 static void setSubtreeSizeWithDFS(vll &subtreeSize, const vvll &adjacent, const vbool &removed, ll u, ll p);
 
-vvll Algorithm::Tree::getAdjacent(const vpll &edge)
+vvll Algorithms::Tree::getAdjacent(const vpll &edge)
 {
 	ll n = edge.size() + 1;
 
@@ -44,7 +44,7 @@ vvll Algorithm::Tree::getAdjacent(const vpll &edge)
 	return adjacent;
 }
 
-vpll Algorithm::Tree::getEdge(const vvll &adjacent)
+vpll Algorithms::Tree::getEdge(const vvll &adjacent)
 {
 	ll n = adjacent.size();
 
@@ -59,7 +59,7 @@ vpll Algorithm::Tree::getEdge(const vvll &adjacent)
 	return edge;
 }
 
-vll Algorithm::Tree::getParent(const vvll &adjacent, ll root)
+vll Algorithms::Tree::getParent(const vvll &adjacent, ll root)
 {
 	ll n = adjacent.size();
 	vll parent(n);
@@ -68,7 +68,7 @@ vll Algorithm::Tree::getParent(const vvll &adjacent, ll root)
 	return parent;
 }
 
-vll Algorithm::Tree::getSubtreeSize(const vvll &adjacent, ll root)
+vll Algorithms::Tree::getSubtreeSize(const vvll &adjacent, ll root)
 {
 	ll n = adjacent.size();
 	vll subtreeSize(n);
@@ -77,7 +77,7 @@ vll Algorithm::Tree::getSubtreeSize(const vvll &adjacent, ll root)
 	return subtreeSize;
 }
 
-vll Algorithm::Tree::getSubtreeSize(const vvll &adjacent, const vbool &removed, ll root)
+vll Algorithms::Tree::getSubtreeSize(const vvll &adjacent, const vbool &removed, ll root)
 {
 	ll n = adjacent.size();
 	assert(removed.size() == n);

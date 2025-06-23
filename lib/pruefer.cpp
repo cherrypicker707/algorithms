@@ -7,7 +7,7 @@ typedef std::vector<vll> vvll;
 typedef std::pair<ll, ll> pll;
 typedef std::vector<pll> vpll;
 
-vll Algorithm::Pruefer::encode(const vpll &edge)
+vll Algorithms::Pruefer::encode(const vpll &edge)
 {
 	ll n = edge.size() + 1;
 	vll code(n - 2);
@@ -35,7 +35,7 @@ vll Algorithm::Pruefer::encode(const vpll &edge)
 	return code;
 }
 
-vpll Algorithm::Pruefer::decode(const vll &code)
+vpll Algorithms::Pruefer::decode(const vll &code)
 {
 	ll n = code.size() + 2;
 
