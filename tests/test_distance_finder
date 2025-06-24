@@ -2,8 +2,8 @@
 
 TIMEFMT="%E"
 
-t=1000
-n=2000
+t=100
+n=8000
 
 make
 
@@ -13,7 +13,7 @@ for i in {1..$t}
 do
 	printf "\033[1mTest case \033[1;96m$i\033[0m/\033[1;96m$t\033[0m\n" &&
 
-	echo $n | bin/pruefer/generate_random_tree > res/input.txt &&
+	bin/random_test_data_generators/find_distance $n > res/input.txt &&
 
 	printf "Depth-first search solution: \033[96m" &&
 	{ time bin/brute_force/find_distance < res/input.txt > res/output_brutal.txt; } 2>&1 | tr -d '\n' &&
