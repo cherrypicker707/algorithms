@@ -5,6 +5,11 @@ typedef long long ll;
 typedef std::vector<ll> vll;
 typedef std::vector<vll> vvll;
 
+Algorithms::BinaryLifting::BinaryLifting()
+{
+	n = m = 0;
+}
+
 Algorithms::BinaryLifting::BinaryLifting(const vvll &adjacent)
 {
 	n = adjacent.size();

@@ -61,7 +61,7 @@ static ll findCentroidWithDFS(const vvll &adjacent, const vbool &removed, const 
 
 static void setDecompositionWithDFS(vll &decomposition, const vvll &adjacent, vbool &removed, vll &subtreeSize, ll u, ll p)
 {
-	subtreeSize = Algorithms::Tree::getSubtreeSize(adjacent, removed, u);
+	Algorithms::Tree::setSubtreeSizeWithDFS(subtreeSize, adjacent, removed, u, -1);
 	u = findCentroidWithDFS(adjacent, removed, subtreeSize, u, -1, subtreeSize[u]);
 	decomposition[u] = p;
 

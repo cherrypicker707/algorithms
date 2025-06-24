@@ -1,5 +1,5 @@
 CC=clang++
-CFLAGS=-fdiagnostics-color=always
+CFLAGS=-fdiagnostics-color=always -g
 
 SRC_FILES=$(shell find src -name "*.cpp")
 BIN_FILES=$(patsubst src/%.cpp, bin/%, $(SRC_FILES))

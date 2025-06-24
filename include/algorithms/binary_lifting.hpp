@@ -6,6 +6,7 @@ namespace Algorithms
 	class BinaryLifting
 	{
 	public:
+		BinaryLifting();
 		BinaryLifting(const std::vector<std::vector<long long>> &adjacent);
 		long long getDistance(long long u, long long v);
 

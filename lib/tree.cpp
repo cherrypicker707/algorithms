@@ -87,7 +87,7 @@ vll Algorithms::Tree::getSubtreeSize(const vvll &adjacent, const vbool &removed,
 	return subtreeSize;
 }
 
-static void setParentWithDFS(vll &parent, const vvll &adjacent, ll u, ll p)
+void Algorithms::Tree::setParentWithDFS(vll &parent, const vvll &adjacent, ll u, ll p)
 {
 	parent[u] = p;
 
@@ -96,7 +96,7 @@ static void setParentWithDFS(vll &parent, const vvll &adjacent, ll u, ll p)
 			setParentWithDFS(parent, adjacent, v, u);
 }
 
-static void setSubtreeSizeWithDFS(vll &subtreeSize, const vvll &adjacent, ll u, ll p)
+void Algorithms::Tree::setSubtreeSizeWithDFS(vll &subtreeSize, const vvll &adjacent, ll u, ll p)
 {
 	subtreeSize[u] = 1;
 
@@ -110,7 +110,7 @@ static void setSubtreeSizeWithDFS(vll &subtreeSize, const vvll &adjacent, ll u, 
 	}
 }
 
-static void setSubtreeSizeWithDFS(vll &subtreeSize, const vvll &adjacent, const vbool &removed, ll u, ll p)
+void Algorithms::Tree::setSubtreeSizeWithDFS(vll &subtreeSize, const vvll &adjacent, const vbool &removed, ll u, ll p)
 {
 	subtreeSize[u] = 1;
 
@@ -119,7 +119,7 @@ static void setSubtreeSizeWithDFS(vll &subtreeSize, const vvll &adjacent, const 
 		if(v == p || removed[v])
 			continue;
 
-		setSubtreeSizeWithDFS(subtreeSize, adjacent, v, u);
+		setSubtreeSizeWithDFS(subtreeSize, adjacent, removed, v, u);
 		subtreeSize[u] += subtreeSize[v];
 	}
 }
