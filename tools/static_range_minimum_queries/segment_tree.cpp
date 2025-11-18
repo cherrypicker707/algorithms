@@ -1,3 +1,4 @@
+#include <climits>
 #include <iostream>
 #include <vector>
 #include <algorithms/segment_tree.hpp>
@@ -17,23 +18,10 @@ int main()
     for(ll i = 0; i < n; i++)
         std::cin >> array[i];
 
-    SegmentTree segment_tree(array);
+    SegmentTree segment_tree(array, std::min<ll>, LLONG_MAX);
 
     for(ll i = 0; i < q; i++)
     {
-        ll type;
-        std::cin >> type;
-
-        if(type == 1)
-        {
-            ll position, value;
-            std::cin >> position >> value;
-            position--;
-
-            segment_tree.set(position, value);
-            continue;
-        }
-
         ll left, right;
         std::cin >> left >> right;
         left--;

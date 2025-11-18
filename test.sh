@@ -3,10 +3,10 @@ make
 TIMEFMT="%E"
 
 n=1000
-generate="bin/dynamic_range_sum_queries/generate"
-generate_parameters=(1000 1000 1 1000000)
-solve_left="bin/dynamic_range_sum_queries/brute"
-solve_right="bin/dynamic_range_sum_queries/segment_tree"
+generate="bin/static_range_sum_queries/generate"
+generate_parameters=(9 7 1 10)
+solve_left="bin/static_range_minimum_queries/brute"
+solve_right="bin/static_range_minimum_queries/segment_tree"
 
 for i in {1..$n}
 do
