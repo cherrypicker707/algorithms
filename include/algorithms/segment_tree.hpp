@@ -19,6 +19,6 @@ private:
     void add_recursively(ll u, ll tree_left, ll tree_right, ll position, ll value);
     ll get_range_value_recursively(ll u, ll tree_left, ll tree_right, ll left, ll right);
     const ll n, neutral_value;
-    vll tree;
     const func operation;
+    vll tree;
 };

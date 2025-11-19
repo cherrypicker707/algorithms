@@ -1,5 +1,5 @@
 CC=clang++
-CFLAGS=-fdiagnostics-color=always -g -Iinclude -Llib
+CFLAGS=-fdiagnostics-color=always -Wall -g -Iinclude -Llib
 
 SRC_FILES=$(wildcard src/*.cpp)
 OBJ_FILES=$(patsubst src/%.cpp, obj/%.o, $(SRC_FILES))

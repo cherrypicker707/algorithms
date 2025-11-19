@@ -1,7 +1,5 @@
-#include <climits>
 #include <iostream>
 #include <vector>
-#include <algorithms/segment_tree.hpp>
 
 typedef long long ll;
 typedef std::vector<ll> vll;
@@ -18,15 +16,16 @@ int main()
     for(ll i = 0; i < n; i++)
         std::cin >> array[i];
 
-    SegmentTree segment_tree(array, [](ll left, ll right) { return std::min(left, right); } , LLONG_MAX);
-
     for(ll i = 0; i < q; i++)
     {
         ll left, right;
         std::cin >> left >> right;
         left--;
 
-        ll sum = segment_tree.get_range_value(left, right);
+        ll sum = 0;
+        for(ll j = left; j < right; j++)
+            sum ^= array[j];
+
         std::cout << sum << '\n';
     }
 }

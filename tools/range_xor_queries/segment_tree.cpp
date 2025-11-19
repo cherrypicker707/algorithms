@@ -18,7 +18,7 @@ int main()
     for(ll i = 0; i < n; i++)
         std::cin >> array[i];
 
-    SegmentTree segment_tree(array, [](ll left, ll right) { return std::min(left, right); } , LLONG_MAX);
+    SegmentTree segment_tree(array, std::bit_xor<ll>());
 
     for(ll i = 0; i < q; i++)
     {

@@ -4,9 +4,9 @@ TIMEFMT="%E"
 
 n=1000
 generate="bin/static_range_sum_queries/generate"
-generate_parameters=(9 7 1 10)
-solve_left="bin/static_range_minimum_queries/brute"
-solve_right="bin/static_range_minimum_queries/segment_tree"
+generate_parameters=(3 1 1 2)
+solve_left="bin/range_xor_queries/brute"
+solve_right="bin/range_xor_queries/segment_tree"
 
 for i in {1..$n}
 do

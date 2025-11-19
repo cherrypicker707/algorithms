@@ -6,12 +6,12 @@ typedef long long ll;
 typedef std::vector<ll> vll;
 typedef std::function<ll (ll, ll)> func;
 
-SegmentTree::SegmentTree(ll n, func operation, ll neutral_value) : n(n), operation(operation), neutral_value(neutral_value)
+SegmentTree::SegmentTree(ll n, func operation, ll neutral_value) : n(n), neutral_value(neutral_value), operation(operation)
 {
-    tree = vll(4 * n, 0);
+    tree = vll(4 * n, neutral_value);
 }
 
-SegmentTree::SegmentTree(const vll &array, func operation, ll neutral_value) : n(array.size()), operation(operation), neutral_value(neutral_value)
+SegmentTree::SegmentTree(const vll &array, func operation, ll neutral_value) : n(array.size()), neutral_value(neutral_value), operation(operation)
 {
     tree = vll(4 * n);
 
@@ -76,8 +76,8 @@ void SegmentTree::add_recursively(ll u, ll tree_left, ll tree_right, ll position
     }
 
     ll tree_mid = (tree_left + tree_right) / 2;
-    set_recursively(2 * u + 1, tree_left, tree_mid, position, value);
-    set_recursively(2 * u + 2, tree_mid, tree_right, position, value);
+    add_recursively(2 * u + 1, tree_left, tree_mid, position, value);
+    add_recursively(2 * u + 2, tree_mid, tree_right, position, value);
     tree[u] = operation(tree[2 * u + 1], tree[2 * u + 2]);
 }
 
