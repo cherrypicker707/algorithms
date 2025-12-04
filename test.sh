@@ -3,10 +3,10 @@ make
 TIMEFMT="%E"
 
 n=1000
-generate="bin/shortest_routes_i/generate"
-generate_parameters=(10 70 1 20)
-solve_left="bin/shortest_routes_i/dfs"
-solve_right="bin/shortest_routes_i/dijkstra"
+generate="bin/count_lesser/generate"
+generate_parameters=(1 20000 1 20000 1 20000 1 20000)
+solve_left="bin/search/brute"
+solve_right="bin/search/binary_search"
 
 for i in {1..$n}
 do
@@ -20,11 +20,11 @@ do
         printf "\033[90m[\033[92mv\033[90m] \033[92msuccess! \033[90m[\033[96m$i\033[90m] "
 
         printf "[ \033[96m$(basename $solve_left) "
-        # printf "\033[90m| \033[96m$(head -n 1 res/left.out ) "
+        printf "\033[90m| \033[96m$(head -n 1 res/left.out ) "
         printf "\033[90m| \033[96m$time_left \033[90m] "
 
         printf "[ \033[96m$(basename $solve_right) "
-        # printf "\033[90m| \033[96m$(head -n 1 res/right.out ) "
+        printf "\033[90m| \033[96m$(head -n 1 res/right.out ) "
         printf "\033[90m| \033[96m$time_right \033[90m]\033[0m\n"
     else
         printf "\033[90m[\033[91mx\033[90m] \033[91mfailure! \033[90m[\033[96m$i\033[90m] "
@@ -34,7 +34,7 @@ do
         printf "\033[90m| \033[96m$time_left \033[90m] "
 
         printf "[ \033[96m$(basename $solve_right) "
-        printf "\033[90m| "\033[96m$(head -n 1 res/right.out ) \033[90m|
+        printf "\033[90m| \033[96m$(head -n 1 res/right.out ) \033[90m| "
         printf "\033[96m$time_right \033[90m]\033[0m\n"
         break
     fi

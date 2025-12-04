@@ -6,12 +6,12 @@ typedef long long ll;
 typedef std::vector<ll> vll;
 typedef std::function<ll (ll, ll)> func;
 
-SegmentTree::SegmentTree(ll n, func operation, ll neutral_value) : n(n), neutral_value(neutral_value), operation(operation)
+SegmentTree::SegmentTree(ll n, const func &operation, ll neutral_value) : n(n), neutral_value(neutral_value), operation(operation)
 {
     tree = vll(4 * n, neutral_value);
 }
 
-SegmentTree::SegmentTree(const vll &array, func operation, ll neutral_value) : n(array.size()), neutral_value(neutral_value), operation(operation)
+SegmentTree::SegmentTree(const vll &array, const func &operation, ll neutral_value) : n(array.size()), neutral_value(neutral_value), operation(operation)
 {
     tree = vll(4 * n);
 
