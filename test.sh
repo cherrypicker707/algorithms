@@ -1,5 +1,7 @@
 mkdir res
 make
+
+export LD_LIBRARY_PATH=lib
 TIMEFMT="%E"
 
 n=1000

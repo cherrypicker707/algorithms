@@ -6,16 +6,16 @@ OBJ_FILES=$(patsubst src/%.cpp, obj/%.o, $(SRC_FILES))
 TOOLS_FILES=$(shell find tools -name "*.cpp")
 BIN_FILES=$(patsubst tools/%.cpp, bin/%, $(TOOLS_FILES))
 
-all: $(BIN_FILES)
+all: lib/libalgorithms.so $(BIN_FILES)
 
-bin/%: tools/%.cpp lib/libalgorithms.a
+bin/%: tools/%.cpp
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -o $@ $< -lalgorithms
 
-lib/libalgorithms.a: $(OBJ_FILES)
-	@mkdir -p $(dir $@)
-	ar rcs $@ $^
+lib/libalgorithms.so: $(OBJ_FILES)
+	@mkid -p $(dir $@)
+	$(CC) -shared -o $@ $^
 
 obj/%.o: src/%.cpp
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c -o $@ -- $^
+	$(CC) $(CFLAGS) -fPIC -c -o $@ $^
