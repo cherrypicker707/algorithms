@@ -13,7 +13,7 @@ bin/%: tools/%.cpp
 	$(CC) $(CFLAGS) -o $@ $< -lalgorithms
 
 lib/libalgorithms.so: $(OBJ_FILES)
-	@mkid -p $(dir $@)
+	@mkdir -p $(dir $@)
 	$(CC) -shared -o $@ $^
 
 obj/%.o: src/%.cpp
