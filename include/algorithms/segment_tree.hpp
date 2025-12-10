@@ -1,3 +1,4 @@
+#pragma once
 #include <functional>
 #include <vector>
 
@@ -13,11 +14,13 @@ public:
     void set(ll position, ll value);
     void add(ll position, ll value);
     ll get_range_value(ll left, ll right);
+
 private:
     void construct_recursively(const vll &array, ll u, ll tree_left, ll tree_right);
     void set_recursively(ll u, ll tree_left, ll tree_right, ll position, ll value);
     void add_recursively(ll u, ll tree_left, ll tree_right, ll position, ll value);
     ll get_range_value_recursively(ll u, ll tree_left, ll tree_right, ll left, ll right);
+
     const ll n, neutral_value;
     const func operation;
     vll tree;

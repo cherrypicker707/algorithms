@@ -5,10 +5,10 @@ export LD_LIBRARY_PATH=lib
 TIMEFMT="%E"
 
 n=1000
-generate="bin/count_lesser/generate"
-generate_parameters=(1 20000 1 20000 1 20000 1 20000)
-solve_left="bin/search/brute"
-solve_right="bin/search/binary_search"
+generate="bin/range_updates_and_sums/generate"
+generate_parameters=(1 7 1 5 1 10)
+solve_left="bin/range_updates_and_sums/brute"
+solve_right="bin/range_updates_and_sums/lazy_segment_tree"
 
 for i in {1..$n}
 do
