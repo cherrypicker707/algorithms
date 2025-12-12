@@ -15,13 +15,13 @@ BinaryLifting::BinaryLifting(const vvll &adjacent)
     construct_with_dfs(0, -1, adjacent);
 }
 
-ll BinaryLifting::get_distance(ll u, ll v)
+ll BinaryLifting::get_distance(ll u, ll v) const
 {
     ll lca = get_lca(u, v);
     return depth[u] + depth[v] - 2 * depth[lca];
 }
 
-ll BinaryLifting::get_lca(ll u, ll v)
+ll BinaryLifting::get_lca(ll u, ll v) const
 {
     if(depth[u] < depth[v])
         std::swap(u, v);
@@ -46,7 +46,7 @@ ll BinaryLifting::get_lca(ll u, ll v)
     return u;
 }
 
-ll BinaryLifting::get_ancestor(ll u, ll k)
+ll BinaryLifting::get_ancestor(ll u, ll k) const
 {
     for(ll i = 0; i < m; i++)
         if(k & (1 << i))

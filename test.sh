@@ -5,10 +5,10 @@ export LD_LIBRARY_PATH=lib
 TIMEFMT="%E"
 
 n=1000
-generate="bin/tree_distance_queries/generate"
-generate_parameters=(1000 2000 1000 2000)
-solve_left="bin/tree_distance_queries/brute"
-solve_right="bin/tree_distance_queries/binary_lifting"
+generate="bin/xenia_and_tree/generate"
+generate_parameters=(100 1000 100 1000)
+solve_left="bin/xenia_and_tree/brute"
+solve_right="bin/xenia_and_tree/centroid_decomposition"
 
 for i in {1..$n}
 do
